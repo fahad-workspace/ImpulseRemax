@@ -7,7 +7,7 @@ class CreatePromos < ActiveRecord::Migration
       t.string :promo_number
       t.integer :promo_priority
 
-      t.timestamps null: false
+      t.timestamps null : false
     end
   end
 end

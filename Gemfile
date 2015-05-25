@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.1.5'
+ruby '2.1.6'
 gem 'rails'
 gem 'sqlite3'
 gem 'sass-rails'
