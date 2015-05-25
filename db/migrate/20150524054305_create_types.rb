@@ -3,7 +3,7 @@ class CreateTypes < ActiveRecord::Migration
     create_table :types do |t|
       t.string :property_type
 
-      t.timestamps null : false
+      t.timestamps null: false
     end
   end
 end

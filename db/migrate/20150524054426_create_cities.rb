@@ -3,7 +3,7 @@ class CreateCities < ActiveRecord::Migration
     create_table :cities do |t|
       t.string :city_name
 
-      t.timestamps null : false
+      t.timestamps null: false
     end
   end
 end

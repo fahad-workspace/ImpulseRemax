@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as : 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'pages/AboutUS' => 'pages#AboutUS'
 
   get 'pages/Franchisee' => 'pages#Franchisee'
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   get 'pages/LegalAdvice' => 'pages#LegalAdvice'
 
-  root to : 'visitors#index'
+  root to: 'visitors#index'
 end
