@@ -1,0 +1,114 @@
+%script{:src => "./script/jquery.min.js", :type => "text/javascript"}
+%script{:src => "./script/script.js", :type => "text/javascript"}
+.container.body-content
+  .row{:style => "padding-left: 15px; padding-right: 15px; padding-top: 15px"}
+    .col-md-4.col-sm-5{:align => "center", :style => "width: 33%; padding-left: 0px; padding-right: 0px; padding-top: 5px;"}
+      %a.logo{:href => "http://www.impulseremax.com/", :style => "text-decoration:none;", :title => "Impulse Remax"}
+        %img.img-responsive{:alt => "Impulse Remax", :src => "image/logo.png"}/
+        %span{:style => "color: red;   font-family: tahoma ! important; font-weight: bold; font-size: 17px; text-decoration: none; display: block; padding-top: 10px;"} India's No.1 Free Property Site
+    .col-md-5.col-sm-7.hidden-xs{:style => "width: 33%; background-color: yellow;"}
+      .outer.text-center{:style => "height: 100px ! important;"}
+        .middle
+          %div
+            %div{:style => "font-family: tahoma ! important; text-decoration: none; font-weight: bold; display: block; text-align: left; font-size: 17px; color: red; text-align: center"}
+              %br/
+              Post Unlimited Property Listings FREE
+              %br/
+              Company Profile and Buyer List FREE
+    .col-md-3.hidden-sm.hidden-xs{:align => "right", :style => "width: 33%; float: right; padding-right: 0px"}
+      %a.btn.btn-danger.font-20.white{:href => "#", :target => "_blank", :title => "You can post all your properties for FREE"}
+        %b
+          Buy/Sell From Expert
+          %br/
+          %div{:align => "left", :style => "font-family: tahoma ! important; text-decoration: none; font-weight: bold; display: block; text-align: center; font-size: 30px;"}
+            9876543210
+  .row
+    = render "visitors/promo_left"
+    .col-md-8.responsive
+      .tab-content.responsive
+        .form-horizontal.padding-15
+          .row
+            .col-md-6
+              .form-group
+                %label.col-sm-3.col-md-3.control-label Type
+                .col-sm-9.col-md-9
+                  %select.form-control
+                    - types_array = Type.order("property_type").all.map { |type| [type.property_type, type.id] }
+                    = options_for_select(types_array)
+                  %span{:style => "color:Red;display:none;", :title => "Property Type is required"} Property Type is required
+              .form-group
+                %label.col-sm-3.col-md-3.control-label Room
+                .col-sm-9.col-md-9
+                  %select.form-control
+                    %option{:selected => "selected", :value => "Select Bedroom"} ---Select Room---
+                    %option{:value => "1"} 1
+                    %option{:value => "2"} 2
+                    %option{:value => "3"} 3
+                    %option{:value => "4"} 4
+                    %option{:value => "5"} 5
+                    %option{:value => "6"} 6
+                    %option{:value => "7"} 7
+                    %option{:value => "8"} 8
+                    %option{:value => "9"} 9
+                    %option{:value => "10"} 10
+                    %option{:value => "more"} More than 10
+                    %option{:value => "na"} Not Applicable
+              .form-group
+                %label.col-sm-3.col-md-3.control-label City
+                .col-sm-9.col-md-9
+                  %select.form-control
+                    - cities_array = City.order("city_name").all.map { |city| [city.city_name, city.id] }
+                    = options_for_select(cities_array)
+                  %span{:style => "color:Red;display:none;", :title => "City is required"} City is required
+            .col-md-6
+              .form-group
+                %label.col-sm-3.col-md-3.control-label Budget
+                .col-sm-9.col-md-9
+                  %input.form-control{:placeholder => "Price in Lakhs (Rupees)", :type => "text"}/
+              .form-group
+                %label.col-sm-3.col-md-3.control-label Locality
+                .col-sm-9.col-md-9
+                  %input.form-control{:placeholder => "Locality", :type => "text"}/
+                  %span{:style => "color:Red;display:none;", :title => "Not Allowed More Than 10."} Not Allowed More Than 10.
+              .form-group
+                %label.col-sm-3.col-md-3.control-label Mobile
+                .col-sm-9.col-md-9
+                  %input.form-control{:placeholder => "10 Digit Mobile Number", :type => "text"}/
+          %div{:align => "center"}
+            %input.btn.btn-primary.btn-lg.margin-bottom-5{"data-loading-text" => "Loading...", :style => "width: 180px; text-align: center;", :type => "button", :value => "Search Properties"}/
+            %input.btn.btn-primary.btn-lg.margin-bottom-5{"data-loading-text" => "Loading...", :style => "width: 180px; text-align: center;", :type => "button", :value => "Post Properties"}/
+      %table#main_table{:style => "width:100%"}
+        %br/
+        %tr
+          %th Property ID
+          %th Type
+          %th Rooms
+          %th Locality
+          %th City
+          %th Budget
+          %th Mobile
+        %tr
+          %td 20150124172746
+          %td Builder Floor Apartment
+          %td 3
+          %td Vaishali
+          %td Ghaziabad
+          %td 35 Lakhs
+          %td 9968579797
+        %tr
+          %td 20150124172748
+          %td Builder Floor Apartment
+          %td 3
+          %td Vaishali
+          %td Ghaziabad
+          %td 35 Lakhs
+          %td 9968579797
+    = render "visitors/promo_right"
+  .navbar-wrapper.top-buffer{:style => "top: auto; z-index: 0;"}
+    .navbar.navbar-inverse.margin-bottom-zeo
+      .container
+        .row.white
+          %hr/
+          %p.white.footer-margin{:style => "color: white; text-align: center;"}
+            All trademarks, logos and names are properties of their respective owners. All Rights
+            Reserved.

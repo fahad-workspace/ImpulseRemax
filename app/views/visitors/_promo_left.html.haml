@@ -1,0 +1,19 @@
+.col-md-2.hidden-xs.hidden-sm
+  %div{:align => "center"}
+  %div{:align => "center"}
+    - promos_array = Promo.order("promo_priority").all
+    - count=0
+    = div_for(promos_array) do |promo|
+      - count=count+1
+      - if count%2!=0
+        .promo_sub_div_container.font-12.margin-bottom-10{:align => "center"}
+          .white.promo_heading
+            %b
+              Call: #{promo.promo_number}
+          .padding-5.promo_content
+            %b
+              %u= promo.promo_heading
+              %br/
+              = promo.promo_content
+            %br/
+            %b.black= promo.promo_extra_content
